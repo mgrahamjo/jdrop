@@ -6,11 +6,11 @@ Seems like everyone who's written a Node app has also written a JSON file storag
 * Escapes HTML
 * Uses promises instead of callbacks
 * You can choose an error handling option:
-** Catch a rejected promise
-** Let jdrop autocatch errors
-** Provide your own autocatch handler
+  * Catch a rejected promise
+  * Let jdrop autocatch errors
+  * Provide your own autocatch handler
 
-# Usage
+### Usage
 
 ```javascript
 const jdrop = require('jdrop')({
@@ -52,9 +52,9 @@ jdrop.del('items').then(() => {
 
 ### Settings
 
-When you `require` jdrop, there are two optional settings.
+When you initialize jdrop, you can pass a config object with two optional settings.
 
-`path` is the directory in which to store JSON files. All of the keys you use to access files will be relative to this path. The default path is `data`.
+`path` is the directory in which to store JSON files. The keys you use to access files are paths relative to this directory. The default path is `data`.
 
 `autocatch` controlls error handling behavior. The default behavior uses a promise rejection, which you can handle thusly:
 
