@@ -1,0 +1,26 @@
+{
+  "name": "jdrop",
+  "version": "1.0.0",
+  "description": "Yet another JSON file store. But with some nice features.",
+  "main": "jdrop.js",
+  "jsnext:main": "jdrop.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mgrahamjo/jdrop.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "json",
+    "data",
+    "database",
+    "file"
+  ],
+  "author": "Mike Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgrahamjo/jdrop/issues"
+  },
+  "homepage": "https://github.com/mgrahamjo/jdrop#readme"
+}
