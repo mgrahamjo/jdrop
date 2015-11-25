@@ -1,6 +1,6 @@
 {
   "name": "jdrop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yet another JSON file store. But with some nice features.",
   "main": "jdrop.js",
   "jsnext:main": "jdrop.js",

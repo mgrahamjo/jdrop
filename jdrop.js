@@ -210,7 +210,7 @@ function del(filepath, key) {
 module.exports = options => {
 
     dataPath = options ? options.path || 'data' : 'data';
-    dataPath = path.join(path.dirname(module.parent.filename), dataPath, '/');
+    dataPath = path.join(path.dirname(require.main.filename), dataPath, '/');
 
     fs.exists(dataPath, exists => {
         if (!exists) {
