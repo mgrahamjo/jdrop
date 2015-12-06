@@ -4,11 +4,8 @@ const fs = require('fs'),
     vm = require('vm'),
     path = require('path'),
     escapeMap = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
         '"': '&quot;',
-        '\'': '&#39;'
+        '\'': '&apos;'
     };
 
 let dataPath,
@@ -27,8 +24,8 @@ function die(err) {
     process.exit(1);
 }
 
-function htmlEscape(str) {
-    return str.replace(/[&<>'"]/g, c => {
+function jsonEscape(str) {
+    return str.replace(/['"]/g, c => {
         return escapeMap[c];
     });
 }
@@ -37,7 +34,7 @@ function escape(data) {
     for (let key in data) {
         if (data.hasOwnProperty(key)) {
             if (typeof data[key] === 'string') {
-                data[key] = htmlEscape(data[key]);
+                data[key] = jsonEscape(data[key]);
             } else if (typeof data[key] === 'object') {
                 escape(data[key]);
             }
@@ -168,13 +165,13 @@ function del(filepath, key) {
 
         filepath = filepath.replace(/\.json$/, '');
 
-        fs.exists(dataPath + file + '.json', exists => {
+        fs.exists(dataPath + filepath + '.json', exists => {
 
             if (exists) {
 
                 if (key) {
 
-                    get(file, true).then(data => {
+                    get(filepath, true).then(data => {
 
                         if (key.indexOf('.') !== -1 || key.indexOf('[') !== -1) {
 
@@ -186,7 +183,7 @@ function del(filepath, key) {
                             delete data[key];
                         }
 
-                        save(file, data).then(data => {
+                        save(filepath, data).then(data => {
                             resolve(data);
                         });
                     });
