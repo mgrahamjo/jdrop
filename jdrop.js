@@ -2,11 +2,7 @@
 
 const fs = require('fs'),
     vm = require('vm'),
-    path = require('path'),
-    escapeMap = {
-        '"': '&quot;',
-        '\'': '&apos;'
-    };
+    path = require('path');
 
 let dataPath,
     autocatch;
@@ -25,9 +21,7 @@ function die(err) {
 }
 
 function jsonEscape(str) {
-    return str.replace(/['"]/g, c => {
-        return escapeMap[c];
-    });
+    return str.replace(/"/g, '\"');
 }
 
 function escape(data) {
