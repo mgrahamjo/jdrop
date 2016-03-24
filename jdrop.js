@@ -20,25 +20,7 @@ function die(err) {
     process.exit(1);
 }
 
-function jsonEscape(str) {
-    return str.replace(/"/g, '\"');
-}
-
-function escape(data) {
-    for (let key in data) {
-        if (data.hasOwnProperty(key)) {
-            if (typeof data[key] === 'string') {
-                data[key] = jsonEscape(data[key]);
-            } else if (typeof data[key] === 'object') {
-                escape(data[key]);
-            }
-        }
-    }
-}
-
 function save(filepath, data) {
-
-    escape(data);
 
     filepath = dataPath + filepath + '.json';
 
